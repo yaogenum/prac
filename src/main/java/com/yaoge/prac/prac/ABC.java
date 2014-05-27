@@ -4,7 +4,7 @@ public class ABC {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		System.out.println("ADB");
+		System.out.println("AD12B");
 	}
 
 }
