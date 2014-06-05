@@ -15,7 +15,7 @@ public class Niotest {
 	public static void main(String[] args) throws IOException {
 		// TODO Auto-generated method stub
 		Niotest test=new Niotest();
-		test.directnio();
+		test.oldio();
 		
 	}
 	
@@ -171,7 +171,15 @@ public class Niotest {
 			}
 		}
 	}
-	
+	/**
+	 * 这里是使用io进行操作输出测试
+	 * 
+	 * @author Administrator
+	 * @return no
+	 * @param no
+	 * @exception IOException
+	 * 
+	 */
 	public void oldio(){
 		File file=new File("D:/test.txt");
 		File newfile =new File ("D:/newtest.txt");
@@ -180,14 +188,17 @@ public class Niotest {
 		FileOutputStream output=null;
 		
 		try{
-			int size=8;
+			//这里我的文本很小，使用1024一下就可以读取完，所以使用16（大本文我也试了也不行，并不是网上说的1024可以正确读取每个内容单元）
+			int size=16;
 			input=new FileInputStream(file);
 			output=new FileOutputStream(newfile);
 			
 			byte bytes[]=new byte[size];
 			int postion;
 			while((postion=input.read(bytes))!=-1){
+				//这里读取，也在输出，会出现间接乱码
 				output.write(bytes,0,postion);
+				System.out.println(new String(bytes,0,postion));//这里应该不是编码问题，我曾也设置了ISO-8859-1---->UTF-8
 			}
 			
 			
