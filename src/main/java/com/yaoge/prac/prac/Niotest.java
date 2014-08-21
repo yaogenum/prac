@@ -15,7 +15,8 @@ public class Niotest {
 	public static void main(String[] args) throws IOException {
 		// TODO Auto-generated method stub
 		Niotest test=new Niotest();
-		test.oldio();
+		test.newio();
+		System.out.println("ok");
 		
 	}
 	
@@ -236,6 +237,12 @@ public class Niotest {
 	
 	public void newio() throws IOException{
 		File file=new File("D:/test.txt");
+		if(file.exists()) {
+			
+		}
+		else{
+			file.createNewFile();
+		}
 		FileChannel fchannel=null;
 		FileInputStream finput=null;
 		try {
