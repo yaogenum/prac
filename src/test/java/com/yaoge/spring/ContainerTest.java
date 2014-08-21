@@ -20,7 +20,7 @@ public class ContainerTest {
 	@Test
 	public void test() {
 		Container con = new Container();
-		assertEquals("ok result" , con.getInvokeResult("sss"),"ss");
+		assertEquals("ok result" , con.getInvokeResult("sss"),"sss");
 	}
 
 }
