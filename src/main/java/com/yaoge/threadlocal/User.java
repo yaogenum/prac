@@ -64,7 +64,6 @@ class User {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-    	
-    }
+    }	
 }  
 
