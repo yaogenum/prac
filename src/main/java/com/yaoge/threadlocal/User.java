@@ -5,6 +5,8 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.concurrent.ArrayBlockingQueue;
+import java.util.concurrent.BlockingQueue;
 
 class User {  
     private String name;  
@@ -46,6 +48,7 @@ class User {
 				e.printStackTrace();
 			}
 			finally{
+				
 				if(fileout!=null) {
 					try {
 						fileinput.close();
@@ -57,8 +60,6 @@ class User {
 				}
 				
 			}
-			
-			
 			
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
