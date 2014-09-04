@@ -8,6 +8,7 @@ public class MyThread extends Thread{
 	}
 	public void setInts(int a) {
 		this.i = a ;
+		
 	}
 	
 	@Override
