@@ -13,7 +13,7 @@ public class RunStruct {
 		
 	
 		Node nodes=null;
-		nodes=trylist.searchNode(node);
+		nodes=trylist.searchNode(nodeb);
 		
 		
 		

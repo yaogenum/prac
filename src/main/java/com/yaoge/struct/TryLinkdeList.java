@@ -2,8 +2,8 @@ package com.yaoge.struct;
 
 public class TryLinkdeList {
 	
-	 volatile static Node header  ;
-	volatile static Node laster ;
+	private volatile static Node header  ;
+	private volatile static Node laster ;
 	
 	public  boolean addNode(Node node) {
 		
