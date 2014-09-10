@@ -2,8 +2,8 @@ package com.yaoge.struct;
 
 public class TryLinkdeList {
 	
-	private volatile static Node header  ;
-	private volatile static Node laster ;
+	 volatile static Node header  ;
+	volatile static Node laster ;
 	
 	public  boolean addNode(Node node) {
 		
@@ -68,16 +68,25 @@ public class TryLinkdeList {
 	public Node searchNode(Node node) {
 		
 		if(header==null || laster==null){
+			
 			return null;
 		}
 		else{
 			synchronized(this){
 				Node tmpNode=header;
-				while(header.equals(laster)){
+			
+				while(tmpNode!=null) {
+					
 					if(node.element.equals(tmpNode.element)) {
 						return tmpNode;
 					}
+					else{
+						tmpNode=tmpNode.afterNode;
+					}
+					
 				}
+			
+				
 			}
 			
 		}
