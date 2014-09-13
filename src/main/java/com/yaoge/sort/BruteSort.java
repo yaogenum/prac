@@ -1,7 +1,11 @@
 package com.yaoge.sort;
 
 import com.yaoge.inter.Sort;
-
+/**
+ * 蛮力算法排序
+ * @author Administrator
+ *
+ */
 public class BruteSort implements Sort{
 	
 	public  int[] inputSort(int[] sourceArray) {

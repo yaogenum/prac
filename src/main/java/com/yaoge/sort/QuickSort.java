@@ -2,6 +2,11 @@ package com.yaoge.sort;
 
 import com.yaoge.inter.Sort;
 
+/**
+ * 快速排序
+ * @author Administrator
+ *
+ */
 public class QuickSort implements Sort {
 
 	public int[] inputSort(int[] sourceArray) {

@@ -1,5 +1,10 @@
 package com.yaoge.inter;
 
+/**
+ * 排序算法实现接口
+ * @author Administrator
+ *
+ */
 public interface Sort {
 	/**
 	 * 提出非法子元素
