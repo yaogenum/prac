@@ -68,9 +68,12 @@ public class QuickSort implements Sort {
 
 	}
 
-	public <T> void swapItem(T[] swapArray, int t1, int t2) {
+	public void swapItem(int[] array, int t1, int t2) {
 		// TODO Auto-generated method stub
-
+		int tmp = array[t1] ;
+		array[t1] = array[t2] ;
+		array[t2] = tmp ;
+		
 	}
 	public int[] startSort(int[] centerArray) {
 		
@@ -78,23 +81,4 @@ public class QuickSort implements Sort {
 		return centerArray;
 	}
 
-	public static void main(String[] args ) {
-		
-		QuickSort sort = new QuickSort();
-		int array[]={1,2,1,10,45,100,56,12,56,34,78,12,89,1,110,45,67,12};
-	
-		System.out.println("长度："+array.length);
-		array = sort.startSort(array);
-		
-		
-		
-		for(int s : array) {
-			System.out.println(s);
-		}
-		System.out.println("长度："+array.length);
-		System.out.println("ok");
-	
-	}
-
-	
 }

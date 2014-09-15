@@ -32,5 +32,5 @@ public interface Sort {
 	 * @param t1
 	 * @param t2
 	 */
-	public <T> void swapItem(T[] swapArray,int t1,int t2) ;
+	public  void swapItem(int[] array , int t1,int t2) ;
 }

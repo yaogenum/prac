@@ -52,6 +52,13 @@ public class BruteSort implements Sort{
 		swapArray[t2]=swapArray[t1];
 		swapArray[t1]=tmp;
 	}
+	public void swapItem(int[] array, int t1, int t2) {
+		// TODO Auto-generated method stub
+		int tmp = array[t1] ;
+		array[t1] = array[t2] ;
+		array[t2] = tmp ;
+		
+	}
 	
 	
 }
