@@ -15,7 +15,7 @@ public class AllSort {
 		}
 		HeapSort sort = new HeapSort();
 		
-		int arrays[] = {3,4,1,2} ;
+		int arrays[] = {3,4,1,12,34,89,123,5,7,9,45,12,78,2} ;
 		
 		System.out.println("length:"+arrays.length);
 		

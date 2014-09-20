@@ -37,7 +37,7 @@ public class HeapSort implements Sort{
 		
 		int length = centerArray.length;
 		for(int i=0 ; i<length ; i++) {
-			getMaxHeapItem(centerArray,length-i-1);
+			getMaxHeapItem(centerArray,length-1);
 			swapItem(centerArray,0,length-1-i);
 			System.out.println("交换最大值："+centerArray[length-1-i]);
 		}
@@ -53,16 +53,18 @@ public class HeapSort implements Sort{
  */
 	public void getMaxHeapItem(int[] data , int lastIndex) {
 		
+        System.out.println("正在判断倒数第"+lastIndex+"个构造堆");
 		  for(int i=(lastIndex-1)/2;i>=0;i--){  
 			  
 	            //k保存正在判断的节点  
 	  
 	            int k=i;  
-	  
+	            System.out.println("选举过程中比较的节点节点"+k);
 	            //如果当前k节点的子节点存在  
 	  
-	            while(k*2+1<=lastIndex){  
-	  
+            while(k*2+1<=lastIndex){  
+	            	
+	            	 System.out.println("选举过程中当前节点与子节点比较选择出最大值"+k);
 	                //k节点的左子节点的索引  
 	  
 	                int biggerIndex=2*k+1;  
@@ -105,7 +107,7 @@ public class HeapSort implements Sort{
 	  
 	        }  
 	  
-	    
+	    System.out.println("最大值为"+data[0]);
 		
 	}
 	
