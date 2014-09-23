@@ -4,7 +4,17 @@ import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
+/**
+ * 单向加密，或计算摘要，主要是为了验证数据的完整性，不可逆
+ * @author Administrator
+ *
+ */
 public class CalMessageDigest {
+	/**
+	 * 计算摘要，可以使用高级封装类DigestUtils.md5DigestAsHex
+	 * @param message
+	 * @return
+	 */
 	public byte[] dealToDigest(String message) {
 		try {
 			MessageDigest digest = MessageDigest.getInstance("MD5") ;

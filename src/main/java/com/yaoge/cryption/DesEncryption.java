@@ -23,16 +23,28 @@ import org.omg.PortableServer.THREAD_POLICY_ID;
  *
  */
 public class DesEncryption {
-
+	/**
+	 * 钥匙生成器
+	 */
 	private KeyGenerator generator ;
-	
+	/**
+	 * 钥匙
+	 */
 	private SecretKey key ;
-	
+	/**
+	 * 具体处理工厂模式下具体算法提供
+	 */
 	private Cipher cipher ;
-	
+	/**
+	 * 返回处理后的数字，二进制
+	 */
 	private byte[] bytes ;
 	
-	
+	/**
+	 * 完成对cipher,钥匙等的准备工作
+	 * @throws NoSuchAlgorithmException
+	 * @throws NoSuchPaddingException
+	 */
 	
 	DesEncryption() throws NoSuchAlgorithmException, NoSuchPaddingException {
 		
@@ -50,14 +62,24 @@ public class DesEncryption {
 		
 		return encryption(dealEncryptionString.getBytes()) ;
 	}
-	
+	/**
+	 * 此处不可用，问题：将加密后的bytes转换成string,再转换成byte时，与加密后的bytes是不一样的，其中主要是string获取bytes时受平台字符集影响，bytes数组从内容和长度不一致
+	 * 所以警告使用bytes不要进行改写
+	 * @param dealDecryptionString
+	 * @return
+	 * @throws UnsupportedEncodingException
+	 */
 	public byte[] dealoutput(String dealDecryptionString) throws UnsupportedEncodingException {
 		
 		byte[] deal = dealDecryptionString.getBytes("UTF-8") ;
 		
 		return decryption(deal);
 	}
-	
+	/**
+	 * 加密
+	 * @param dealEncryptionBytes
+	 * @return
+	 */
 	public byte[] encryption(byte[] dealEncryptionBytes) {
 		
 		try {
@@ -85,7 +107,11 @@ public class DesEncryption {
 		return null ;
 		
 	}
-	
+	/**
+	 * 解密
+	 * @param dealDecryptionBytes
+	 * @return
+	 */
 	public byte[] decryption(byte[] dealDecryptionBytes) {
 		
 		try {
@@ -112,31 +138,7 @@ public class DesEncryption {
 		
 	}
 	
-	public static void main(String args[]) throws UnsupportedEncodingException {
-		try {
-			DesEncryption des =  new DesEncryption();
-			String s = "abc123x23we23" ;
-			
-			byte[] deal = des.dealinput(s) ;
-			
-			deal = des.decryption(deal);
-
-			
-			System.out.println(new String(deal));
-			
-			System.out.println(System.getProperty("file.encoding")+";"+Charset.defaultCharset());
-
-			
-		} catch (NoSuchAlgorithmException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (NoSuchPaddingException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-		
-	}
+	
 }
 
 

@@ -14,18 +14,36 @@ import javax.crypto.Cipher;
 import javax.crypto.IllegalBlockSizeException;
 import javax.crypto.NoSuchPaddingException;
 
+/**
+ * RSA双向加密
+ * @author Administrator
+ *
+ */
 public class RsaCryption {
-	
+	/**
+	 * 处理的byte
+	 */
 	private byte[] bytes;
-	
+	/**
+	 * 具体处理工厂模式下具体算法提供
+	 */
 	private Cipher cipher ;
-	
+	/**
+	 * key对的生成器
+	 */
 	private KeyPairGenerator pair ;
-	
+	/**
+	 * key对
+	 */
 	private KeyPair keys ;
 	
+	/**
+	 * 公钥，这里测试，使用时不能暴露
+	 */
 	private PublicKey publickey;
-	
+	/**
+	 * 私钥，这里测试，使用时不能暴露
+	 */
 	private PrivateKey privatekey;
 	
 	
@@ -44,7 +62,11 @@ public class RsaCryption {
 	public void setPrivatekey(PrivateKey privatekey) {
 		this.privatekey = privatekey;
 	}
-
+	/**
+	 * 完成准备工作，获取RSA算法key对，生成private,public 
+	 * @throws NoSuchAlgorithmException
+	 * @throws NoSuchPaddingException
+	 */
 	RsaCryption() throws NoSuchAlgorithmException, NoSuchPaddingException {
 		pair = KeyPairGenerator.getInstance("RSA") ;
 		cipher = Cipher.getInstance("RSA") ;
@@ -56,6 +78,12 @@ public class RsaCryption {
 		
 	}
 	
+	/**
+	 * 加密
+	 * @param publicKey
+	 * @param dealToEncryption
+	 * @return
+	 */
 	public byte[]  encryption(PublicKey publicKey , byte[] dealToEncryption) {
 		
 		try {
@@ -77,6 +105,12 @@ public class RsaCryption {
 		
 	}
 	
+	/**
+	 * 解密
+	 * @param privatekey
+	 * @param dealToDecryption
+	 * @return
+	 */
 	public byte[] decryption(PrivateKey privatekey ,byte[] dealToDecryption) {
 		
 		try {
@@ -103,27 +137,6 @@ public class RsaCryption {
 	}
 	
 	
-	public static void main (String args[] ) {
-		try {
-			RsaCryption rsa =new RsaCryption() ;
-			String message = "nihaocndihfdshxlfh12321" ;
-			byte[] bytes = rsa.encryption(rsa.getPublickey(), message.getBytes()) ;
-			System.out.println(new String(bytes));
-			
-			bytes =rsa.decryption(rsa.getPrivatekey() ,bytes );
-			System.out.println(new String(bytes));
-			
-			
-		} catch (NoSuchAlgorithmException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (NoSuchPaddingException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-		
-	}
 	
 	
 }
