@@ -122,9 +122,7 @@ public class RsaCryption {
 			e.printStackTrace();
 		}
 		
-		
 	}
-	
 	
 }
 
