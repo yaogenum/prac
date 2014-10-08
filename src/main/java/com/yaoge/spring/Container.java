@@ -1,5 +1,6 @@
 package com.yaoge.spring;
 
+
 public class Container {
 	
 	public String getInvokeResult(String s) {
@@ -11,6 +12,7 @@ public class Container {
 	public static void main (String args[]) {
 		System.out.println("ok");
 		
+		Object b = new Object() ;
 		
 		
 	}
