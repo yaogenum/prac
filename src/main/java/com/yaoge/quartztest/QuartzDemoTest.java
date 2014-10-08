@@ -19,8 +19,8 @@ public class QuartzDemoTest {
 
 	public static void main( String[] args ){
 		
-		ScheduleFactoryTest test = new ScheduleFactoryTest() ;
-		Scheduler sch = test.getScheduler() ;
+		
+		Scheduler sch = ScheduleFactoryTest.getScheduler() ;
 		
 		JobDetail job = new JobDetailImpl("1","A",TimingTask.class) ;
 		
@@ -34,7 +34,6 @@ public class QuartzDemoTest {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
 		
 		
 		

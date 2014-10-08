@@ -5,33 +5,46 @@ import org.quartz.SchedulerException;
 import org.quartz.SchedulerFactory;
 import org.quartz.impl.StdSchedulerFactory;
 
+/**
+ * 单例模式
+ * @author Administrator
+ *
+ */
 public class ScheduleFactoryTest {
-	private static SchedulerFactory factory = null ;
+	
+	private static final SchedulerFactory factory = new StdSchedulerFactory() ;
 	private static Scheduler scheduler = null ;
 	
 	
-	
-	ScheduleFactoryTest() {
-		
-		factory = new StdSchedulerFactory() ;
-		
-		try {
-			scheduler = factory.getScheduler() ;
-		} catch (SchedulerException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
+	private ScheduleFactoryTest() {
+		System.out.println("无构造");
 	}
 	
-	public static  Scheduler getScheduler() {
+	public static Scheduler getScheduler() {
 		
-		if(null!=scheduler) {
-			return  scheduler ;
+		if(scheduler == null) {
+			
+			synchronized(ScheduleFactoryTest.class) {
+				
+				if(scheduler == null) {
+					
+					try {
+						scheduler = factory.getScheduler() ;
+					} catch (SchedulerException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+					
+					return scheduler ;
+					
+				}
+				
+				
+			}
+			
 		}
-		else{
-			return  null ;
-		}
+		
+		return scheduler ;
 		
 	}
 	
