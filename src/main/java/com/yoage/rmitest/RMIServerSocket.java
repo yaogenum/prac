@@ -11,6 +11,7 @@ public class RMIServerSocket {
 		try {
 			LocateRegistry.createRegistry(10010) ;
 			Naming.rebind("rmi://127.0.0.1:10010/MyRemote", remoteService);//Naming内部使用LocateRegistry，被装饰者
+			
 		} catch (MalformedURLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
