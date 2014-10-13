@@ -1,4 +1,4 @@
-package com.yoage.threadinvoke;
+package com.yaoge.threadinvoke;
 
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutorService;

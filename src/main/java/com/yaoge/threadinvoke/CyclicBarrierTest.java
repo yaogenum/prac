@@ -1,4 +1,4 @@
-package com.yoage.threadinvoke;
+package com.yaoge.threadinvoke;
 
 import java.util.concurrent.BrokenBarrierException;
 import java.util.concurrent.CyclicBarrier;

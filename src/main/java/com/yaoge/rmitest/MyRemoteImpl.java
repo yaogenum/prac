@@ -1,4 +1,4 @@
-package com.yoage.rmitest;
+package com.yaoge.rmitest;
 
 import java.io.Serializable;
 
